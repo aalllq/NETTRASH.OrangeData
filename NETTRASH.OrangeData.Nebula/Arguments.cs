@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using NETTRASH.OrangeData.Nebula.Interfaces;
 
 namespace NETTRASH.OrangeData.Nebula
 {
@@ -31,6 +32,10 @@ namespace NETTRASH.OrangeData.Nebula
 
         public string Password { get; set; }
 
+        public string Realm { get; set; }
+
+        public string Command { get; set; }
+
 
 
         #endregion
@@ -42,6 +47,10 @@ namespace NETTRASH.OrangeData.Nebula
         {
             _Valid = false;
             _Init(args);
+            if (_Valid)
+            {
+                _additionalValidate();
+            }
         }
 
 
@@ -53,8 +62,9 @@ namespace NETTRASH.OrangeData.Nebula
 
         private void _Init(string[] args)
         {
-            if ((args?.Length ?? 0) != 8) return;
-            for (int i=0; i<args.Length/2; i+=2)
+            _Valid = false;
+            if ((args?.Length ?? 0) < 12) return;
+            for (int i = 0; i < args.Length / 2; i += 2)
             {
                 switch (args[i])
                 {
@@ -70,6 +80,12 @@ namespace NETTRASH.OrangeData.Nebula
                     case "-s":
                         Password = args[i + 1];
                         break;
+                    case "-obj":
+                        Realm = args[i + 1];
+                        break;
+                    case "-cmd":
+                        Command = args[i + 1];
+                        break;
                     default:
                         _Valid = false;
                         _Message = $"Invalid argument: {args[i]}";
@@ -78,6 +94,11 @@ namespace NETTRASH.OrangeData.Nebula
             }
             _Valid = !string.IsNullOrEmpty(Host) && !string.IsNullOrEmpty(User) && !string.IsNullOrEmpty(Password) && Port > 0;
             _Message = !_Valid ? "Argument not found" : string.Empty;
+        }
+
+        private void _additionalValidate()
+        {
+
         }
 
 
@@ -89,14 +110,31 @@ namespace NETTRASH.OrangeData.Nebula
 
         public string GetUseString()
         {
-            return "Use: NETTRASH.OrangeData.Nebula {args}\nArguments:\n\t-h [host] - Nebula Host (localhost|192.168.0.1|nebula.local)\n\t-p [port] - Nebula Port\n\t-u [user] - Nebula User\n\t-s [secret] - Password\n";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Use: NETTRASH.OrangeData.Nebula {args}");
+            sb.AppendLine("Arguments:");
+            sb.AppendLine("\t-h [host] - Nebula Host (localhost|192.168.0.1|nebula.local)");
+            sb.AppendLine("\t-p [port] - Nebula Port");
+            sb.AppendLine("\t-u [user] - Nebula User");
+            sb.AppendLine("\t-s [secret] - Nebula User Password");
+            sb.AppendLine("\t-obj [object] - Nebula object (Realm)");
+            sb.AppendLine("\t-cmd [command] - Nebula command (Command)");
+            sb.AppendLine("\t{prms} - (optional) command parameters");
+            sb.AppendLine("");
+            sb.AppendLine("Realms:");
+            sb.AppendLine($"\t - {string.Join("\n\t - ", System.Enum.GetNames(typeof(Enums.RealmType)))}");
+            sb.AppendLine("");
+            sb.AppendLine("Realm commands:");
+            sb.AppendLine("");
+            sb.AppendLine("  Farm");
+            sb.AppendLine("");
+            return sb.ToString();
         }
 
-        public string Execute()
+        public ICommand GetCommand()
         {
-            StringBuilder retVal = new StringBuilder();
-            retVal.AppendLine($"Host: {Host}\nPort: {Port}\n");
-            return retVal.ToString();
+
+            return null;
         }
 
 

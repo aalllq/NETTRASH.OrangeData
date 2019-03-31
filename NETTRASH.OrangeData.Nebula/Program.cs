@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using NETTRASH.OrangeData.Nebula.API;
+using NETTRASH.OrangeData.Nebula.Interfaces;
 
 namespace NETTRASH.OrangeData.Nebula
 {
@@ -12,7 +13,17 @@ namespace NETTRASH.OrangeData.Nebula
             Arguments prms = new Arguments(args);
             if (prms.Valid)
             {
-                Console.WriteLine(prms.Execute());
+                ICommand cmd = prms.GetCommand();
+                if (cmd != null)
+                {
+                    ICommandResult result = cmd.Execute();
+                    Console.WriteLine($"Executed: {(result.Success ? "Success" : "Fail")} {result.Message}");
+                    Console.WriteLine($"\n{cmd.Log}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid command");
+                }
             }
             else
             {
