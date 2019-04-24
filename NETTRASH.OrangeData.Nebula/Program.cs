@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-using NETTRASH.OrangeData.Nebula.API;
 using NETTRASH.OrangeData.Nebula.Interfaces;
 
 namespace NETTRASH.OrangeData.Nebula

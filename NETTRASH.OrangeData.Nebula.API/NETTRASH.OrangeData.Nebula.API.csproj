@@ -12,4 +12,8 @@
   <ItemGroup>
     <Compile Remove="Administration.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Response\" />
+    <Folder Include="Request\" />
+  </ItemGroup>
 </Project>
