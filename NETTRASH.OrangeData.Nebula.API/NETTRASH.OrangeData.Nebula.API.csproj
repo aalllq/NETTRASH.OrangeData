@@ -20,5 +20,7 @@
     <Folder Include="Classes\" />
     <Folder Include="Classes\Organization\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Classes\DeviceGroup\" />
+    <Folder Include="Request\DeviceGroup\" />
   </ItemGroup>
 </Project>
