@@ -24,6 +24,12 @@ namespace NETTRASH.OrangeData.Nebula.API.Request
         {
         }
 
+        public Token(string sLogin, string sPassword)
+        {
+            Login = sLogin;
+            Password = sPassword;
+        }
+
 
 
         #endregion

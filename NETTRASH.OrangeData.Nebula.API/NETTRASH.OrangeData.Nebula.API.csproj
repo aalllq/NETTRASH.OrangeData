@@ -15,5 +15,10 @@
   <ItemGroup>
     <Folder Include="Response\" />
     <Folder Include="Request\" />
+    <Folder Include="Request\Organization\" />
+    <Folder Include="Response\Organization\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Classes\Organization\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>

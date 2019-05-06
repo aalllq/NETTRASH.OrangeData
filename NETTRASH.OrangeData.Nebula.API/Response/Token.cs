@@ -35,7 +35,14 @@ namespace NETTRASH.OrangeData.Nebula.API.Response
 
         public static Token Load(string sSourceJson)
         {
-            return JsonConvert.DeserializeObject<Token>(sSourceJson);
+            try
+            {
+                return JsonConvert.DeserializeObject<Token>(sSourceJson);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
 

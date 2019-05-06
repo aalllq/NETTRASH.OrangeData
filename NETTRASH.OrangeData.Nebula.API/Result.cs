@@ -6,7 +6,7 @@
 
 
 
-        public uint Code { get; set; }
+        public System.Net.HttpStatusCode StatusCode { get; set; }
 
         public T Response { get; set; }
 
@@ -17,10 +17,10 @@
 
 
 
-        public Result(uint nCode, T ResponseData)
+        public Result(System.Net.HttpStatusCode StatusCode, T ResponseData)
         {
-            Code = nCode;
-            Response = ResponseData;
+            this.StatusCode = StatusCode;
+            this.Response = ResponseData;
         }
 
 
