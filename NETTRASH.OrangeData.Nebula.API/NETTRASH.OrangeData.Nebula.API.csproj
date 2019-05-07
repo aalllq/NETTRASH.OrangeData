@@ -32,5 +32,8 @@
     <Folder Include="Classes\User\" />
     <Folder Include="Request\User\" />
     <Folder Include="Response\User\" />
+    <Folder Include="Classes\OrganizationKey\" />
+    <Folder Include="Request\OrganizationKey\" />
+    <Folder Include="Response\OrganizationKey\" />
   </ItemGroup>
 </Project>
