@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace NETTRASH.OrangeData.Nebula.API.Response.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Response.User
 {
     [JsonObject]
-    public class List : BaseList<Classes.DeviceGroup.DeviceGroupInfo>
+    public class List : BaseList<Classes.User.UserInfo>
     {
         #region Public constructors
 

@@ -2,6 +2,7 @@
 
 namespace NETTRASH.OrangeData.Nebula.API.Response.Organization
 {
+    [JsonObject]
     public class Change : Add, Interfaces.IOrganizationInfo
     {
         #region Public constructors

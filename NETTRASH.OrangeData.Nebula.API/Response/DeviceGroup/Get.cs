@@ -2,6 +2,7 @@
 
 namespace NETTRASH.OrangeData.Nebula.API.Response.DeviceGroup
 {
+    [JsonObject]
     public class Get : Add, Interfaces.IDeviceGroupInfo
     {
         #region Public constructors

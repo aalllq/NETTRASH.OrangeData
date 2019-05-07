@@ -25,7 +25,7 @@
 
         public override string GetURLPart()
         {
-            return $"{base.GetURLPart()}/organizations/getByInn/{Id}";
+            return $"{base.GetURLPart().Replace(Id, $"getByInn/{Id}")}";
         }
 
 

@@ -1,15 +1,15 @@
 ﻿using Newtonsoft.Json;
 
-namespace NETTRASH.OrangeData.Nebula.API.Response.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Response.User
 {
     [JsonObject]
-    public class List : BaseList<Classes.DeviceGroup.DeviceGroupInfo>
+    public class Get : Add, Interfaces.IUserInfo
     {
         #region Public constructors
 
 
 
-        public List()
+        public Get()
             : base()
         {
         }
@@ -21,11 +21,11 @@ namespace NETTRASH.OrangeData.Nebula.API.Response.DeviceGroup
 
 
 
-        public static List Load(string sSourceJson)
+        new public static Get Load(string sSourceJson)
         {
             try
             {
-                return JsonConvert.DeserializeObject<List>(sSourceJson);
+                return JsonConvert.DeserializeObject<Get>(sSourceJson);
             }
             catch
             {

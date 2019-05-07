@@ -2,6 +2,7 @@
 
 namespace NETTRASH.OrangeData.Nebula.API.Response.Client
 {
+    [JsonObject]
     public class Add : Base, Interfaces.IClientInfo
     {
         #region Public properties

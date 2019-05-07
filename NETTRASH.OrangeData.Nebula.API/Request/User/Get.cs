@@ -1,8 +1,8 @@
 ﻿using System.Net.Http;
 
-namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Request.User
 {
-    public class Delete : Base
+    public class Get : Base
     {
         #region Public properties
 
@@ -17,11 +17,11 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
 
 
-        public Delete()
+        public Get()
         {
         }
 
-        public Delete(string sId)
+        public Get(string sId)
         {
             Id = sId;
         }
@@ -45,7 +45,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
         public override HttpMethod GetMethod()
         {
-            return HttpMethod.Delete;
+            return HttpMethod.Get;
         }
 
 

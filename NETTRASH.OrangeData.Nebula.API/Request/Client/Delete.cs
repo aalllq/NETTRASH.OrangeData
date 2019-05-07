@@ -35,7 +35,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.Client
 
         public override string GetURLPart()
         {
-            return $"{base.GetURLPart()}/clients/{Id}";
+            return $"{base.GetURLPart()}/{Id}";
         }
 
         public override HttpContent GetContent()

@@ -35,7 +35,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.Organization
 
         public override string GetURLPart()
         {
-            return $"{base.GetURLPart()}/organizations/{Id}";
+            return $"{base.GetURLPart()}/{Id}";
         }
 
         public override HttpContent GetContent()

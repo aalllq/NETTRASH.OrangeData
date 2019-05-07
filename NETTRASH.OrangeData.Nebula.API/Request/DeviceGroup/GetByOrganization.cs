@@ -28,7 +28,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
         public override string GetURLPart()
         {
-            return $"{base.GetURLPart()}/deviceGroups/GetByOrganization/{Id}";
+            return $"{base.GetURLPart().Replace(Id, $"GetByOrganization/{Id}")}";
         }
 
         public HttpContent GetContent(int? nCount, string sAfter)

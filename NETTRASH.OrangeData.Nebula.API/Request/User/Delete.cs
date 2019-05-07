@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Request.User
 {
     public class Delete : Base
     {

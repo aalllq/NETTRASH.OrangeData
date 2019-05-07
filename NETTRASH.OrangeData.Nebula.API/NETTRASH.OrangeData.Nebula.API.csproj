@@ -29,5 +29,8 @@
     <Folder Include="Request\Client\" />
     <Folder Include="Response\Device\" />
     <Folder Include="Response\Client\" />
+    <Folder Include="Classes\User\" />
+    <Folder Include="Request\User\" />
+    <Folder Include="Response\User\" />
   </ItemGroup>
 </Project>
