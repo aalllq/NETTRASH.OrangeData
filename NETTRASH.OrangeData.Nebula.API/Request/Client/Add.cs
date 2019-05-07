@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Request.Client
 {
     public class Add : Base
     {
@@ -8,7 +8,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
 
 
-        public Classes.DeviceGroup.DeviceGroupData DeviceGroup { get; set; }
+        public Classes.Client.ClientData Client { get; set; }
 
 
 
@@ -19,12 +19,12 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
         public Add()
         {
-            DeviceGroup = null;
+            Client = null;
         }
 
-        public Add(Classes.DeviceGroup.DeviceGroupData deviceGroup)
+        public Add(Classes.Client.ClientData client)
         {
-            DeviceGroup = deviceGroup;
+            Client = client;
         }
 
 
@@ -36,7 +36,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
         public override HttpContent GetContent()
         {
-            return new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(DeviceGroup), System.Text.Encoding.UTF8, "application/json");
+            return new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(Client), System.Text.Encoding.UTF8, "application/json");
         }
 
         public override HttpMethod GetMethod()

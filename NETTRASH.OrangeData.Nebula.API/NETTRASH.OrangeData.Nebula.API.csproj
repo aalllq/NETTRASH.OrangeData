@@ -23,5 +23,11 @@
     <Folder Include="Classes\DeviceGroup\" />
     <Folder Include="Request\DeviceGroup\" />
     <Folder Include="Response\DeviceGroup\" />
+    <Folder Include="Classes\Device\" />
+    <Folder Include="Classes\Client\" />
+    <Folder Include="Request\Device\" />
+    <Folder Include="Request\Client\" />
+    <Folder Include="Response\Device\" />
+    <Folder Include="Response\Client\" />
   </ItemGroup>
 </Project>

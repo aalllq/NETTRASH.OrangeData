@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 
-namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
+namespace NETTRASH.OrangeData.Nebula.API.Request.Client
 {
     public class GetByOrganization : Get
     {
@@ -28,7 +28,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Request.DeviceGroup
 
         public override string GetURLPart()
         {
-            return $"{base.GetURLPart()}/deviceGroups/GetByOrganization/{Id}";
+            return $"{base.GetURLPart()}/clients/GetByOrganization/{Id}";
         }
 
         public HttpContent GetContent(int? nCount, string sAfter)
