@@ -1,10 +1,39 @@
-﻿using System;
+﻿using System.Net.Http;
+using Newtonsoft.Json;
+
 namespace NETTRASH.OrangeData.Nebula.API.Request.Device
 {
-    public class GetFiscalizationResult
+    [JsonObject]
+    public class GetFiscalizationResult : BaseSpecific
     {
-        public GetFiscalizationResult()
+        #region Public constructors
+
+
+
+        public GetFiscalizationResult(string sId)
+            : base(sId)
         {
         }
+
+
+
+        #endregion
+        #region Public methods
+
+
+
+        public override string GetURLPart()
+        {
+            return $"{base.GetURLPart()}/getFiscalizationResult";
+        }
+
+        public override HttpContent GetContent()
+        {
+            return new StringContent(string.Empty);
+        }
+
+
+
+        #endregion
     }
 }
