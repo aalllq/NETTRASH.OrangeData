@@ -35,5 +35,6 @@
     <Folder Include="Classes\OrganizationKey\" />
     <Folder Include="Request\OrganizationKey\" />
     <Folder Include="Response\OrganizationKey\" />
+    <Folder Include="Request\Device\Table\" />
   </ItemGroup>
 </Project>

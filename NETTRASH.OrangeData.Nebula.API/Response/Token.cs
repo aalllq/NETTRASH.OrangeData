@@ -3,7 +3,7 @@
 namespace NETTRASH.OrangeData.Nebula.API.Response
 {
     [JsonObject]
-    public class Token : Base
+    public class Token : Base, Interfaces.IToken
     {
         #region Public properties
 
