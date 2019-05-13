@@ -28,7 +28,7 @@
         /// Флаги предупреждения фискального накопителя
         /// </summary>
         /// <value>Структура</value>
-        IFDWarningFlagsInfo FDWarningFlags { get; set; }
+        IDeviceFDWarningFlagsInfo FDWarningFlags { get; set; }
 
         /// <summary>
         /// Количество документов обработанных фискальным накопителем

@@ -1,6 +1,6 @@
 ﻿namespace NETTRASH.OrangeData.Nebula.API.Interfaces
 {
-    public interface IFDWarningFlagsInfo
+    public interface IDeviceFDWarningFlagsInfo
     {
         #region Public properties
 
