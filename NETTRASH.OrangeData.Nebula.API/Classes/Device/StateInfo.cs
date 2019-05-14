@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
 {
     [JsonObject]
-    public class StateInfo : Interfaces.IDeviceStateInfo
+    public class StateInfo : JsonConverter, Interfaces.IDeviceStateInfo
     {
         #region Private properties
 
@@ -46,6 +47,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         /// </summary>
         /// <value>Структура</value>
         [JsonProperty(PropertyName = "fsWarningFlags")]
+        [JsonConverter(typeof(FDWarningFlagsInfo))]
         public Interfaces.IDeviceFDWarningFlagsInfo FDWarningFlags
         {
             get
@@ -92,6 +94,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         /// </summary>
         /// <value>Структура</value>
         [JsonProperty(PropertyName = "error")]
+        [JsonConverter(typeof(ErrorInfo))]
         public Interfaces.IDeviceErrorInfo Errors
         {
             get
@@ -127,6 +130,14 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         public int? FirmwareBuild { get; set; }
 
 
+        [JsonIgnore]
+        public override bool CanWrite => true;
+
+        [JsonIgnore]
+        public override bool CanRead => true;
+
+
+
 
         #endregion
         #region Public constructors
@@ -151,6 +162,28 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
             FirmwareDate = state.FirmwareDate;
             FirmwareVersion = state.FirmwareVersion;
             FirmwareBuild = state.FirmwareBuild;
+        }
+
+
+
+        #endregion
+        #region Public methods
+
+
+
+        public override bool CanConvert(Type objectType)
+        {
+            return true; //TODO: need to fix
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            return serializer.Deserialize<StateInfo>(reader);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            serializer.Serialize(writer, value);
         }
 
 

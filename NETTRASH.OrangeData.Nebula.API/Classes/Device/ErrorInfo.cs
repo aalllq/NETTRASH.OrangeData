@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
 {
     [JsonObject]
-    public class ErrorInfo : Interfaces.IDeviceErrorInfo
+    public class ErrorInfo : JsonConverter, Interfaces.IDeviceErrorInfo
     {
         #region Public properties
 
@@ -23,6 +24,12 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         [JsonProperty(PropertyName = "message")]
         public string Message { get; set; }
 
+        [JsonIgnore]
+        public override bool CanRead => true;
+
+        [JsonIgnore]
+        public override bool CanWrite => true;
+
 
 
         #endregion
@@ -38,6 +45,28 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         {
             Code = error.Code;
             Message = error.Message;
+        }
+
+
+
+        #endregion
+        #region Public methods
+
+
+
+        public override bool CanConvert(Type objectType)
+        {
+            return true; //TODO: fix it
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            return serializer.Deserialize<ErrorInfo>(reader);
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            serializer.Serialize(writer, value);
         }
 
 

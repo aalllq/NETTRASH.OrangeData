@@ -81,6 +81,7 @@ namespace NETTRASH.OrangeData.Nebula.API.Classes.Device
         /// </summary>
         /// <value>Структура</value>
         [JsonProperty(PropertyName = "state")]
+        [JsonConverter(typeof(StateInfo))]
         public Interfaces.IDeviceStateInfo State
         {
             get
